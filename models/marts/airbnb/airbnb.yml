@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: dim_neighborhoods
+    description: Summarizes Airbnb Neighborhood
+    columns:
+      - name: neighborhood_id
+        tests:
+          - unique
+          - not_null

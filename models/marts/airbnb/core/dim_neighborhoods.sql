@@ -12,7 +12,7 @@ with agg_listings as (
 
 neighborhoods as (
 
-  select * from {{ ref('dim_neighborhoods') }}
+  select * from {{ ref('stg_airbnb_neighborhoods') }}
 
 ),
 
