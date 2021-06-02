@@ -1,9 +1,31 @@
-{{ config(materialized='table') }}
+with agg_listings as (
 
-with source as (
+  select
 
-    select * from {{ ref('stg_airbnb_neighborhoods') }}
+  neighborhood_cleansed,
+  count(listing_id) as total_listings
+
+  from {{ ref('stg_airbnb_listings') }}
+  group by 1
+
+),
+
+neighborhoods as (
+
+  select * from {{ ref('dim_neighborhoods') }}
+
+),
+
+joined as (
+
+  select
+
+  neighborhoods.*,
+  total_listings
+
+  from neighborhoods
+  left join agg_listings
 
 )
 
-select * from source
+select * from joined
