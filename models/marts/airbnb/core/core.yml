@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_neighborhoods
+    description: Neighborhoods table with listings joined to it
+    columns:
+      - name: neighbhorhood_id
+        description: Primary key on the neighborhood table
+        tests:
+          - unique
+          - not_null
