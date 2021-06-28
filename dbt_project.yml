@@ -27,11 +27,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 vars:
   dbt_utils_dispatch_list: ['spark_utils']
 
-on-run-start:
-  - "set spark.databricks.delta.properties.defaults.autoOptimize.optimizeWrite = true;"
-  - "set spark.databricks.delta.properties.defaults.autoOptimize.autoCompact = true;"
-
-
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
