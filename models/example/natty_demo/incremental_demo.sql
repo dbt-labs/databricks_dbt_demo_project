@@ -1,4 +1,8 @@
-{{ config(materialized = 'incremental', unique_key='id') }}
+{{ config(
+    materialized = 'incremental',
+    unique_key='id',
+    pre_hook='SET spark.databricks.delta.schema.autoMerge.enabled=true')
+}}
 
 select id, date_day
 from {{ ref('incremental_source') }}
