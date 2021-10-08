@@ -1,6 +1,5 @@
 {{ config(
-    materialized='view',
-    file_format='delta')
+    materialized='view')
 }}
 
 select concat(hi_there, ", and Natty!") as hi_there_natty --, nonexistent_col

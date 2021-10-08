@@ -1,3 +1,3 @@
-{{ config(materialized='table', file_format='parquet') }}
+{{ config(materialized='table') }}
 
 select "Hello World" as hi_there
