@@ -1,7 +1,6 @@
 {{ config(
     materialized = 'incremental',
-    unique_key='id',
-    pre_hook='SET spark.databricks.delta.schema.autoMerge.enabled=true')
+    file_format = 'delta')
 }}
 
 select id, date_day
