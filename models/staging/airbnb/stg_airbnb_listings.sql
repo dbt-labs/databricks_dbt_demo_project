@@ -10,7 +10,7 @@ renamed as (
 
     select
         id as listing_id,
-        host_id,
+        host_id as host_key,
         listing_url,
         name as listing_name,
         description as listing_description,
