@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: fact_listings_demo
+    columns:
+      - name: host_id
+        description: this is the id of the host
+        tests:
+          - unique
+          - not_null
+      - name: lifetime_listings
+        description: this is the id of the host
+        tests:
+          - not_null 
