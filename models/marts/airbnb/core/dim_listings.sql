@@ -27,7 +27,7 @@ final as (
         listings.listing_name,
         listings.listing_description,
         listings.property_type,
-        listings.room_type,
+        listings.room_type as room_type_name,
         listings.num_accommodates,
         listings.num_bathrooms,
         listings.bathrooms_description,
