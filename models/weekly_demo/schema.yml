@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: fact_customer_lifetime
+    columns:
+      - name: customer_key
+        descriptions: this is the key of the customer from the CRM
+        tests:
+          - unique
+          - not_null
