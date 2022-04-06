@@ -15,6 +15,7 @@ order_item as (
     select * from {{ ref('order_items') }}
 
 ),
+
 order_item_summary as (
 
     select 
