@@ -1,8 +1,15 @@
+{{
+    config(
+        materialized='table'
+    )
+}}
+
 with source as (
 
     select * from {{ source('tpch', 'customer') }}
 
 ),
+
 
 renamed as (
 

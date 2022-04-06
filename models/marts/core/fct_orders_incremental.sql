@@ -1,12 +1,11 @@
 {{
     config(
         materialized='incremental',
-        unique_key='order_key',
-        incremental_strategy='merge'
+        unique_key='order_key'
     )
 }}
 
-select * from {{ref('fct_orders')}}
+select * from dbt_mwinkler.fct_orders
 {% if is_incremental() %}
 where order_date >= '1998-07-01'
 {% else %}
