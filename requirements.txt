@@ -1,3 +1,4 @@
 dbt-databricks==1.0.2
 fal==0.2.15
 ipykernel==6.13.0
+textblob==0.17.1
