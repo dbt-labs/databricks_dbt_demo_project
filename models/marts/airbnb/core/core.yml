@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: fct_reviews
+    description: Reviews from stays
+    columns:
+      - name: listing_id
+        description: Foreign key to Listings table
+        tests:
+          - not_null
+      - name: review_id
+        description: Review ID
+        tests:
+          - unique
+          - not_null
+      - name: reviewer_id
+      - name: reviewer_name
+      - name: comments
+      - name: reviewed_at
