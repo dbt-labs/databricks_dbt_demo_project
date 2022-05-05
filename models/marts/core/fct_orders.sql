@@ -5,6 +5,7 @@
     )
 }}
 
+-- comment
 with orders as (
     
     select * from {{ ref('stg_tpch_orders') }}
@@ -20,6 +21,7 @@ order_item_summary as (
 
     select 
         order_key,
+        sum(1) as my_sum,
         sum(gross_item_sales_amount) as gross_item_sales_amount,
         sum(item_discount_amount) as item_discount_amount,
         sum(item_tax_amount) as item_tax_amount,
