@@ -17,3 +17,8 @@ models:
       - name: reviewer_name
       - name: comments
       - name: reviewed_at
+    meta:
+      fal:
+        scripts:
+          after:
+            - python_dbt_demo.py
