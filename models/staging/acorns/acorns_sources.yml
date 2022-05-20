@@ -9,3 +9,4 @@ sources:
     schema: registrations
     tables:
       - name: tier_subscriptions
+        description: The tier of the description based on subscription status and total assets under management.
