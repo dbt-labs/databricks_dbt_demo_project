@@ -38,7 +38,6 @@ final as (
         orders.priority_code,
         orders.clerk_name,
         orders.ship_priority,
-        orders.total_price,
                 
         1 as order_count,                
         order_item_summary.gross_item_sales_amount,
