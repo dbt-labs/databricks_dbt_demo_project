@@ -1,18 +1,9 @@
 version: 2
 
 exposures:
-  - name: yearly_part_rollup
+  - name: orders_dashboard
     description: |
-      # An h1 header
-      ============
-
-      Paragraphs are separated by a blank line.
-
-      2nd paragraph. *Italic*, **bold**, and `monospace`
-      Itemized lists look like:
-        * this one
-        * that one
-        * the other one
+      Dashboard to check the Orders summary
     
     # type could be {dashboard, notebook, analysis, ml, application}
     type: dashboard 
@@ -25,9 +16,9 @@ exposures:
     
     # documentation purposes for point of contact if stuff breaks
     owner:
-      name: DBT User Bob
-      email: dbtuserbob@getdbt.com
+      name: DBT User 
+      email: dbtuser@getdbt.com
     
     # IMPORTANT: determines the lineage relationship of the exposure construct to the rest of your DAG
     depends_on:
-      - ref('agg_yearly_parts_hardcoded_pivot')
+      - ref('fct_orders')
