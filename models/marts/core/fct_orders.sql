@@ -36,7 +36,6 @@ final as (
         orders.customer_key,
         orders.status_code,
         orders.priority_code,
-        --orders.total_price,
         -------------------
         
         orders.ship_priority,
