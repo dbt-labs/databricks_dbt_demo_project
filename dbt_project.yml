@@ -44,6 +44,12 @@ models:
           materialized: view
       staging:
           materialized: view
+          airbnb:
+            +tags: "airbnb"
       marts:
           materialized: table
+          tpch:
+            +tags: "tpch"
+          airbnb:
+            +tags: "airbnb"
     
