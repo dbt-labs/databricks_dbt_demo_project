@@ -17,7 +17,7 @@ with source_data as (
 
 )
 
-select *
+select count(*) as {{databricks_format_column('"row_count"')}}
 from source_data
 
 /*
