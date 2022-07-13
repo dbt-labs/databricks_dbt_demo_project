@@ -20,7 +20,11 @@ sources:
               - relationships:
                   to: source('tpch', 'customer')
                   field: c_custkey
+
           - name: o_orderstatus
+            tests:
+              - accepted_values:
+                  values: ['O', 'F', 'P']
           - name: o_totalprice
           - name: o_orderdate
           - name: o_orderpriority
