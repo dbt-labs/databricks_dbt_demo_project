@@ -30,7 +30,10 @@
             select distinct
                 table_schema,
                 table_name,
-                {{ dbt_utils.get_table_types_sql() }}
+                case table_type
+                    when 'BASE TABLE' then 'table'
+                    else lower(table_type)
+                end as table_type
 
             from {{ adapter.quote(database) }}.{{ schema }}.INFORMATION_SCHEMA.TABLES
             where lower(table_name) like lower ('{{ table_pattern }}')
