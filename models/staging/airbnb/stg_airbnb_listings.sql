@@ -69,7 +69,7 @@ renamed as (
         to_date(last_scraped) as listing_last_scraped_at,
         to_date(calendar_last_scraped) as calendar_last_scraped_at,
         to_date(calendar_updated) as calendar_updated_at,
-        to_date(host_since) as host_since
+        to_date(host_since, 'yyyy-MM-dd') as host_since
     from source
 
 )
