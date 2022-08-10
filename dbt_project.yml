@@ -37,6 +37,7 @@ dispatch:
 models:
   file_format: delta
   incremental_strategy: merge
+  +on_schema_change: "sync_all_columns"
 
   databricks_demo:
       # Applies to all files under models/example/
