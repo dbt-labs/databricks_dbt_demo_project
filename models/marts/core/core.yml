@@ -1,6 +1,14 @@
 version: 2
 
 models:
+  - name: sales_summary
+    description: Sales summary, sales by supplier and customer, by year.
+    columns:
+      - name: customer_key
+        description: Primary key on the sales summary table
+        tests:
+          - not_null
+
   - name: dim_customers
     description: Customer dimensions table
     columns:
