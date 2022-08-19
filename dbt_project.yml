@@ -42,8 +42,8 @@ models:
       # Applies to all files under models/example/
       example:
           materialized: view
-      staging:
+      silver:
           materialized: view
-      marts:
+      gold:
           materialized: table
     
