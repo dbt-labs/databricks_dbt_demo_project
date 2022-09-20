@@ -1,0 +1,15 @@
+name: Trigger dbt cloud job to prep views and build docs
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  prep:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run dbt cloud job
+      run: |
+        RESPONSE=$(curl -v -H "Authorization:Token ${{ secrets.DBTCLOUDAPIKEY }}" -H "Content-Type:application/json" -d '{"cause":"Triggered by Github Actions","git_branch":"main"}' https://cloud.getdbt.com/api/v2/accounts/43791/jobs/130271/run/)
+        STATUSCODE=$(echo "$RESPONSE" | jq '.status.code')
+        echo "$RESPONSE" | jq '.status.user_message'
+        if [[ $STATUSCODE != 200 ]]; then echo "$RESPONSE" && bash -c "exit 1"; fi
