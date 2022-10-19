@@ -8,7 +8,7 @@ def is_holiday(date_col):
 def model(dbt, session):
     dbt.config(
         materialized = "table",
-        packages = ["holidays"] #import pypi holidays package
+        packages = ["holidays"], #import pypi holidays package
         create_notebook=True # writes to /Shared/dbt_python_model/
     )
 
