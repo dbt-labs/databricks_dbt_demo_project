@@ -1,3 +1,9 @@
+{{
+    config(
+        docs={'node_color': 'silver'}
+    )
+}}
+
 SELECT
          o.o_orderkey as order_number
         ,e.status_name as status_name

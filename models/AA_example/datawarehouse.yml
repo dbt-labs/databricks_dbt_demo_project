@@ -35,4 +35,17 @@ models:
               values: ['COMPLETE','ORDERED','PENDING']
               severity: warn
       - name: revenue
+        description: Purchase revenue of the order
+
+
+  - name: agg_revenue
+    description: Orders with order fulfillment status information
+    columns:
+      - name: status_name
+        description: Current Status of the Order
+        tests:
+          - accepted_values:
+              values: ['COMPLETE','ORDERED','PENDING']
+              severity: warn
+      - name: total_revenue
         description: Total purchase revenue of the order. Sum of prices

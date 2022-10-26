@@ -30,4 +30,4 @@ exposures:
     
     # IMPORTANT: determines the lineage relationship of the exposure construct to the rest of your DAG
     depends_on:
-      - ref('revenue')
+      - ref('agg_revenue')
