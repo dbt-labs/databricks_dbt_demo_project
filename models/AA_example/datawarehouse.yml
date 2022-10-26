@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_status
+    description: Prepares data from the status seed file
+    columns:
+      - name: status_code
+        description: Primary key of the status data file
+        tests:
+          - unique
+          - not_null
+      - name: status_name
+        description: Translated value of a status code to business friendly terms
+        tests:
+          - accepted_values:
+              values: ['COMPLETE','ORDERED','PENDING']
+              severity: warn
+
+
+  - name: revenue
+    description: Orders with order fulfillment status information
+    columns:
+      - name: order_number
+        description: Order number created at the time of purchase
+        tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null
+      - name: status_name
+        description: Current Status of the Order
+        tests:
+          - accepted_values:
+              values: ['COMPLETE','ORDERED','PENDING']
+              severity: warn
+      - name: revenue
+        description: Total purchase revenue of the order. Sum of prices
