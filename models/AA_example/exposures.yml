@@ -1,7 +1,7 @@
 version: 2
 
 exposures:
-  - name: yearly_part_rollup
+  - name: Revenue Dashboard
     description: |
       # An h1 header
       ============
@@ -30,26 +30,4 @@ exposures:
     
     # IMPORTANT: determines the lineage relationship of the exposure construct to the rest of your DAG
     depends_on:
-      - ref('agg_yearly_parts_hardcoded_pivot')
-
-  - name: orders_dashboard
-    description: 
-      Dashboard showing orders by date
-    
-    # type could be {dashboard, notebook, analysis, ml, application}
-    type: dashboard 
-    
-    # this is just a link to the thing itself for click through from documentation
-    url: https://example.com
-    
-    # convenience feature - relative scale of {high, medium, low}
-    maturity: low
-    
-    # documentation purposes for point of contact if stuff breaks
-    owner:
-      name: Jon "Natty" Natkins
-      email: natty@fishtownanalytis.com
-    
-    # IMPORTANT: determines the lineage relationship of the exposure construct to the rest of your DAG
-    depends_on:
-      - ref('fct_orders')
+      - ref('revenue')

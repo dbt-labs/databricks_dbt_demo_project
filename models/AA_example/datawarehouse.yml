@@ -17,6 +17,7 @@ models:
               severity: warn
 
 
+
   - name: revenue
     description: Orders with order fulfillment status information
     columns:

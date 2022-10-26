@@ -1,4 +1,4 @@
-SELECT 
+SELECT
 
      status_code
     ,status_name
