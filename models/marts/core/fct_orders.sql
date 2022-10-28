@@ -39,6 +39,7 @@ final as (
         orders.status_code,
         orders.priority_code,
         orders.clerk_name,
+        orders.total_price,
         
         orders.ship_priority,
                 
