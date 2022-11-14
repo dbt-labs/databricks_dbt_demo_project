@@ -14,8 +14,8 @@ renamed as (
       'date'
     ]) }} as calendar_id,
     listing_id,
-    price as price_in_dollars,
-    adjusted_price as adjusted_price_in_dollars,
+    {{ dollar_string_to_decimal('price') }} as price_in_dollars,
+    {{ dollar_string_to_decimal('price') }} as adjusted_price_in_dollars,
     minimum_nights,
     maximum_nights,
     boolean(available) as is_available,

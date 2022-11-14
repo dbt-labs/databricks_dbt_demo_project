@@ -21,7 +21,7 @@ renamed as (
         bathrooms_text as bathrooms_description,
         beds as num_beds,
         amenities,
-        price as price_in_dollars,
+        {{ dollar_string_to_decimal('price') }} as price_in_dollars,
         minimum_nights,
         maximum_nights,
         picture_url,
