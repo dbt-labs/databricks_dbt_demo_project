@@ -9,6 +9,10 @@ models:
         tests:
           - unique
           - not_null
+      - name: region
+        tests:
+          - accepted_values:
+              values: ['AFRICA', 'MIDDLE EAST', 'ASIA', 'EUROPE']
                 
   - name: dim_parts
     columns:
