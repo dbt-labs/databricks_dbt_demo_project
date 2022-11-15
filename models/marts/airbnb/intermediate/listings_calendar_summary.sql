@@ -29,7 +29,8 @@ calendar_summary as (
         {% endfor %}
     
     from calendar
-    where availability_date >= current_date()
+    -- where availability_date >= current_date()
+    where availability_date >= date('2022-01-01')
     group by 1
 
 )
