@@ -1,7 +1,0 @@
-version: 2
-
-sources:
-  - name: acorns
-    schema: acorns
-    tables:
-      - name: eod_account_balance
