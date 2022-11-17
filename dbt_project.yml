@@ -44,6 +44,13 @@ models:
           materialized: view
       staging:
           materialized: view
+          +docs:
+            node_color: "#5A5A5A"
       marts:
           materialized: table
+          +docs:
+            node_color: "gold"
+  tests:
+    +docs:
+      node_color: "pink"
     
