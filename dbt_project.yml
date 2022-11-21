@@ -39,9 +39,6 @@ models:
   incremental_strategy: merge
 
   databricks_demo:
-      # Applies to all files under models/example/
-      example:
-          materialized: view
       staging:
           materialized: view
       marts:
