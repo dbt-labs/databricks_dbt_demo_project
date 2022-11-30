@@ -3,6 +3,8 @@ version: 2
 sources:
   - name: tpch
     schema: tpch
+    catalog: hive_metastore
+    
     tables:
       - name: orders
         description: main order tracking table
