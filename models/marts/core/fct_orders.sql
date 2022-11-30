@@ -15,10 +15,12 @@ order_item as (
     select * from {{ ref('order_items') }}
 
 ),
+
 order_item_summary as (
 
     select 
         order_key,
+        sum(1) as my_sum,
         sum(gross_item_sales_amount) as gross_item_sales_amount,
         sum(item_discount_amount) as item_discount_amount,
         sum(item_tax_amount) as item_tax_amount,
@@ -37,6 +39,7 @@ final as (
         orders.status_code,
         orders.priority_code,
         orders.clerk_name,
+        
         orders.ship_priority,
                 
         1 as order_count,                
