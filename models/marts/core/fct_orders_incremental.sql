@@ -1,8 +1,7 @@
 {{
     config(
         materialized='incremental',
-        unique_key='order_key',
-        incremental_strategy='merge'
+        unique_key='order_key'
     )
 }}
 

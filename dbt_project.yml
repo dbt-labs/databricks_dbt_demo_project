@@ -35,12 +35,10 @@ dispatch:
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  file_format: delta
-  incremental_strategy: merge
 
   databricks_demo:
       staging:
-          materialized: view
+          materialized: table
       marts:
           materialized: table
     
