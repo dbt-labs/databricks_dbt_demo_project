@@ -1,6 +1,5 @@
 {{
     config(
-        materialized= 'table',
         docs={'node_color': 'silver'}
     )
 }}
