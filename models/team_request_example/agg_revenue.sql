@@ -5,6 +5,7 @@
 }}
 
 SELECT
+
     status_name
     ,sum(revenue) as total_revenue
 
