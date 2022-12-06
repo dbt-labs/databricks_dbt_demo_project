@@ -40,5 +40,10 @@ models:
   databricks_demo:
       staging:
           materialized: table
+
       marts:
           materialized: table
+          
+      team_request_example:
+          materialized: table
+    
