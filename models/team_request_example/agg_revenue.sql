@@ -10,5 +10,6 @@ SELECT
     ,sum(revenue) as total_revenue
 
 FROM {{ ref('revenue') }}
+
 GROUP BY 
     status_name
