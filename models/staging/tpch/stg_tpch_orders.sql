@@ -24,3 +24,4 @@ renamed as (
 )
 
 select * from renamed
+limit 100000
