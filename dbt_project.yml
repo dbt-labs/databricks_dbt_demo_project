@@ -35,7 +35,9 @@ dispatch:
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-
+  +persist_docs:
+    relation: true
+    columns: true
   databricks_demo:
       staging:
           materialized: table
