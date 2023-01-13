@@ -11,7 +11,7 @@ with part as (
 
 final as (
     select 
-        part_key,
+        'k' as part_key,
         manufacturer,
         name,
         brand,
