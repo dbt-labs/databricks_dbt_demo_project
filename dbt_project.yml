@@ -35,17 +35,12 @@ dispatch:
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  file_format: delta
-  incremental_strategy: merge
-
+  +persist_docs:
+    relation: true
+    columns: true
   databricks_demo:
-      # Applies to all files under models/example/
-      example:
-          materialized: view
       staging:
-          materialized: view
-          +docs:
-            node_color: "#5A5A5A"
+          materialized: table
       marts:
           materialized: table
           +docs:

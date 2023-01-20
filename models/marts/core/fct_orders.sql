@@ -7,7 +7,7 @@
 
 with orders as (
     
-    select * from {{ ref('int_tpch_orders_with_holidays') }}
+    select * from {{ ref('stg_tpch_orders') }}
 
 ),
 order_item as (
