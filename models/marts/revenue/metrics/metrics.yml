@@ -1,0 +1,38 @@
+version: 2
+
+metrics:
+  - name: rolling_new_customers
+    label: New Customers
+    model: ref('dim_customers')
+    description: "The 14 day rolling count of paying customers using the product"
+
+    calculation_method: count_distinct
+    expression: user_id 
+
+    timestamp: signup_date
+    time_grains: [day, week, month, quarter, year]
+
+    dimensions:
+      - plan
+      - country
+    
+    window:
+      count: 14
+      period: day
+
+    filters:
+      - field: is_paying
+        operator: 'is'
+        value: 'true'
+      - field: lifetime_value
+        operator: '>='
+        value: '100'
+      - field: company_name
+        operator: '!='
+        value: "'Acme, Inc'"
+      - field: signup_date
+        operator: '>='
+        value: "'2020-01-01'"
+
+
+    meta: {team: Finance}

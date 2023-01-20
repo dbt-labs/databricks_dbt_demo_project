@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: tpch
-    schema: tpch
+    database: hive_metastore
     
     tables:
       - name: orders
