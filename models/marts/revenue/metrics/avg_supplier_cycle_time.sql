@@ -3,7 +3,7 @@ with cte as (
     from {{ metrics.calculate(
         metric('avg_supplier_cycle_days'),
         grain='quarter',
-        dimensions = ['supplier_key'],
+        dimensions = ['ship_mode'],
         secondary_calculations = [metrics.rolling(aggregate = "max", interval=4, alias = "max_past_4quarter")]
     ) }}
 
@@ -19,4 +19,5 @@ from cte
 
 
 
-{#  #}
+{# ,
+        secondary_calculations = [metrics.rolling(aggregate = "max", interval=4, alias = "max_past_4quarter")]  #}
