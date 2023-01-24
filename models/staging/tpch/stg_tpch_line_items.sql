@@ -8,7 +8,7 @@ renamed as (
 
     select
     
-        {{ dbt_utils.surrogate_key(
+        {{ dbt_utils.generate_surrogate_key(
             ['l_orderkey', 
             'l_linenumber']) }}
                 as order_item_key,
@@ -22,9 +22,9 @@ renamed as (
         l_tax as tax_rate,
         l_returnflag as return_flag,
         l_linestatus as status_code,
-        l_shipdate as ship_date,
-        l_commitdate as commit_date,
-        l_receiptdate as receipt_date,
+        cast((dateadd(year,20,l_shipdate)) as DATE) as ship_date,
+        cast((dateadd(year,20,l_commitdate)) as DATE) as commit_date,
+        cast((dateadd(year,20,l_receiptdate)) as DATE) as receipt_date,
         l_shipinstruct as ship_instructions,
         l_shipmode as ship_mode,
         l_comment as comment

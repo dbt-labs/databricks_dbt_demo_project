@@ -1,38 +1,54 @@
 version: 2
 
 metrics:
-  - name: rolling_new_customers
-    label: New Customers
-    model: ref('dim_customers')
-    description: "The 14 day rolling count of paying customers using the product"
+  - name: avg_supplier_cycle_days
+    label: Average Supplier Cycle Days
+    model: ref('order_items')
+    description: "This is the average amount of days it took suppliers to ship our orders from order date"
+    meta:
+      owner: Operations
 
-    calculation_method: count_distinct
-    expression: user_id 
+    calculation_method: average
+    expression: datediff(ship_date, order_date)  
 
-    timestamp: signup_date
+    timestamp: order_date
     time_grains: [day, week, month, quarter, year]
 
     dimensions:
-      - plan
-      - country
-    
-    window:
-      count: 14
-      period: day
+      - supplier_key
+      - ship_mode
 
     filters:
-      - field: is_paying
+      - field: order_date
+        operator: '<'
+        value: "'2012-12-30'"
+
+  
+  - name: total_shipped_orders
+    label: Total Shipped Orders
+    model: ref('order_items')
+    description: ""
+
+    calculation_method: count_distinct
+    expression: order_key  
+
+    timestamp: order_date
+    time_grains: [day, week, month, quarter, year]
+
+    dimensions:
+      - supplier_key
+      - ship_mode
+
+    filters:
+      - field: ship_date
         operator: 'is'
-        value: 'true'
-      - field: lifetime_value
-        operator: '>='
-        value: '100'
-      - field: company_name
-        operator: '!='
-        value: "'Acme, Inc'"
-      - field: signup_date
-        operator: '>='
-        value: "'2020-01-01'"
+        value: "not null"
+      - field: order_date
+        operator: '<'
+        value: "'2012-12-30'"
+
+models:
+ - name: supplier_performance
+   description: Suppliers average cycle time and quantity of shipped orders
 
 
-    meta: {team: Finance}
