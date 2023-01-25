@@ -151,8 +151,6 @@ models:
         description: status of the order
       - name: priority_code
         description: code associated with the order
-      - name: clerk_name
-        description: id of the clerk
       - name: ship_priority
         description: numeric representation of the shipping priority, zero being the default
       - name: order_count
