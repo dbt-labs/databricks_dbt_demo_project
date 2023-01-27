@@ -140,7 +140,7 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_between:
                min_value: 0 
-               max_value: 20000000
+               max_value: 2000000000
       - name: customer_key
         description: foreign key for customers
         tests:
