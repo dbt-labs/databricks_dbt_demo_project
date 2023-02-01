@@ -40,7 +40,6 @@ final as (
         orders.priority_code,
  --
         orders.total_price,
-        orders.clerk_name,
         
         orders.ship_priority,
                 
