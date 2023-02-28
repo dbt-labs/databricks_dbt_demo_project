@@ -1,4 +1,4 @@
 {% macro money(col) -%}
-::decimal(16,4)
+{{col}}::decimal(16,4)$$%#*U%#()
 {%- endmacro %}
 

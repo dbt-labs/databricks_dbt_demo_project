@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: demo_gold
+    description: hi hello!
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: lifetime_orders
+        description: this is the total number of orders placed by this customer
+      - name: lifetime_value
+        description: this is the total price paid by this customer
