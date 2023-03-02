@@ -39,11 +39,13 @@ models:
   incremental_strategy: merge
 
   databricks_demo:
-      # Applies to all files under models/example/
       example:
           materialized: view
       staging:
           materialized: view
       marts:
           materialized: table
-    
+      ml:
+          +cluster_id: "{{ env_var('DBT_DATABRICKS_CLUSTER_ID') }}"
+          +submission_method: all_purpose_cluster
+
