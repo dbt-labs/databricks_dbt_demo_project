@@ -5,4 +5,4 @@ select
     count(distinct order_id) as lifetime_orders,
     sum(price) as lifetime_value
 from {{ ref("demo_silver_orders") }}
-group by customer_id
+group by 1
