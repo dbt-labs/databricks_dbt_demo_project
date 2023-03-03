@@ -138,6 +138,7 @@ models:
         tests:
           - unique
           - not_null
+<<<<<<< HEAD
       - name: customer_key
         description: foreign key for customers
         tests:
@@ -165,3 +166,5 @@ models:
         description: '{{ doc("item_tax_amount") }}'
       - name: net_item_sales_amount
         description: '{{ doc("net_item_sales_amount") }}'
+=======
+>>>>>>> 5d0a024 (Update core.yml)
