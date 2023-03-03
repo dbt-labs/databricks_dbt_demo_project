@@ -8,7 +8,7 @@ from prophet.serialize import model_from_json
 def model(dbt, session):
 
     # get trained ML models
-    models = dbt.ref("forecast_train").pandas_api()
+    models = dbt.ref("revenue_by_nation_forecast_train").pandas_api()
 
     # get most recent trained_at
     most_recent_trained_at = models["trained_at"].max()
