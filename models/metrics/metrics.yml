@@ -22,7 +22,7 @@ metrics:
     description: "Number of customers with an order"
 
     calculation_method: count_distinct
-    sql: customer_key
+    expression: customer_key
 
     timestamp: order_date
     time_grains: [day, week, month, quarter, year]
