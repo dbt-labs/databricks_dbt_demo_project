@@ -21,7 +21,7 @@ metrics:
     model: ref('orders_by_nation')
     description: "Number of customers with an order"
 
-    type: count_distinct
+    calculation_method: count_distinct
     sql: customer_key
 
     timestamp: order_date
