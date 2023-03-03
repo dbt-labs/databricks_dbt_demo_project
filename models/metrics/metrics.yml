@@ -8,7 +8,7 @@ metrics:
     description: "Income from all orders less tax"
 
     type: sum
-    sql: net_item_sales_amount
+    expression: net_item_sales_amount
 
     timestamp: order_date
     time_grains: [day, week, month, quarter, year]
