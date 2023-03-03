@@ -15,7 +15,7 @@ def model(dbt, session):
     trained_at = datetime.now()
 
     # get upstream data
-    revenue = dbt.ref("revenue_weekly_by_nation").pandas_api()
+    revenue = dbt.ref("revenue_by_nation").pandas_api()
 
     # rename to match prophet's expected column names
     renames = {
