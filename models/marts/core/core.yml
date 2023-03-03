@@ -18,7 +18,6 @@ models:
           - not_null
 
   - name: dim_suppliers
-    tests:
     columns:
       - name: supplier_key
         tests:
