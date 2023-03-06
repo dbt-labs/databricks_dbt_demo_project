@@ -6,10 +6,13 @@ from sklearn.cluster import KMeans
 
 
 def model(dbt, session):
-
-    dbt.config(
-        create_notebook=True,
-    )
+    # uncomment to create notebook in Databricks. note that this will
+    # cause issues if a cluster isn't started
+    # see: https://github.com/databricks/dbt-databricks/issues/232
+    # 
+    # dbt.config(
+    #     create_notebook=True,
+    # )
 
     # MLflow control
     model_name = "dbt-databricks-cluster-demo"
