@@ -7,8 +7,8 @@ metrics:
     model: ref('orders_by_nation')
     description: "Income from all orders less tax"
 
-    type: sum
-    sql: net_item_sales_amount
+    calculation_method: sum
+    expression: net_item_sales_amount
 
     timestamp: order_date
     time_grains: [day, week, month, quarter, year]
@@ -21,8 +21,8 @@ metrics:
     model: ref('orders_by_nation')
     description: "Number of customers with an order"
 
-    type: count_distinct
-    sql: customer_key
+    calculation_method: count_distinct
+    expression: customer_key
 
     timestamp: order_date
     time_grains: [day, week, month, quarter, year]
