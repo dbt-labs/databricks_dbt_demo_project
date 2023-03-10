@@ -16,12 +16,3 @@ models:
         tests:
           - unique
           - not_null
-
-  - name: int_tpch_orders_with_holidays
-    columns:
-      - name: is_holiday
-        description: is this date a US holiday?
-        tests:
-          - accepted_values:
-              values: [True,False]
-              quote: false
