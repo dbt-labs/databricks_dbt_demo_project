@@ -3,7 +3,6 @@ version: 2
 sources:
   - name: tpch
     schema: tpch
-    
     tables:
       - name: orders
         description: main order tracking table
