@@ -32,7 +32,25 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
+<<<<<<< HEAD
   my_new_project:
     # Applies to all files under models/example/
     example:
       materialized: view
+=======
+
+  databricks_demo:
+      # Applies to all files under models/example/
+      example:
+          +materialized: view
+      staging:
+          +materialized: view
+      marts:
+          +materialized: table
+          ml:
+              +cluster_id: "{{ env_var('DBT_DATABRICKS_CLUSTER_ID') }}"
+              +submission_method: all_purpose_cluster
+
+              # Disabled until https://github.com/databricks/dbt-databricks/issues/232 is resolved
+              +enabled: False
+>>>>>>> 0e7fddc655d7720ea77159bd70689304ff5df784
