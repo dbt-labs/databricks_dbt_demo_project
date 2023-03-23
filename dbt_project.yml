@@ -9,7 +9,6 @@ config-version: 2
 # This setting configures which "profile" dbt uses for this project.
 profile: 'default'
 
-
 on-run-end: "{{ dbt_artifacts.upload_results(results) }}"
 
 # These configurations specify where dbt should look for different types of files.
@@ -35,21 +34,16 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-<<<<<<< HEAD
   my_new_project:
     # Applies to all files under models/example/
     example:
       materialized: view
-=======
 
   databricks_demo:
-<<<<<<< HEAD
       +pre-hook: "{{ governance_check() }}"
-=======
       # Applies to all files under models/example/
       example:
           +materialized: view
->>>>>>> d5960ee5db362438c95e297e92a0dfc0aa2ba774
       staging:
           +materialized: view
       marts:
@@ -60,4 +54,4 @@ models:
 
               # Disabled until https://github.com/databricks/dbt-databricks/issues/232 is resolved
               +enabled: False
->>>>>>> 0e7fddc655d7720ea77159bd70689304ff5df784
+
