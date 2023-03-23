@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'databricks_demo'
+name: 'my_new_project'
 version: '1.0.0'
 config-version: 2
 
@@ -15,21 +15,18 @@ on-run-end: "{{ dbt_artifacts.upload_results(results) }}"
 # These configurations specify where dbt should look for different types of files.
 # The `source-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
-source-paths: ["models"]
-analysis-paths: ["analysis"]
+model-paths: ["models"]
+analysis-paths: ["analyses"]
 test-paths: ["tests"]
-data-paths: ["data"]
+seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
 target-path: "target"  # directory which will store compiled SQL files
 clean-targets:         # directories to be removed by `dbt clean`
-    - "target"
-    - "dbt_modules"
+  - "target"
+  - "dbt_packages"
 
-dispatch:
-  - macro_namespace: dbt_utils
-    search_order: ['spark_utils', 'dbt_utils']
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -38,13 +35,29 @@ dispatch:
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  +persist_docs:
-    relation: true
-    columns: true
+<<<<<<< HEAD
+  my_new_project:
+    # Applies to all files under models/example/
+    example:
+      materialized: view
+=======
+
   databricks_demo:
+<<<<<<< HEAD
       +pre-hook: "{{ governance_check() }}"
+=======
+      # Applies to all files under models/example/
+      example:
+          +materialized: view
+>>>>>>> d5960ee5db362438c95e297e92a0dfc0aa2ba774
       staging:
-          materialized: table
+          +materialized: view
       marts:
-          materialized: table
-    
+          +materialized: table
+          ml:
+              +cluster_id: "{{ env_var('DBT_DATABRICKS_CLUSTER_ID') }}"
+              +submission_method: all_purpose_cluster
+
+              # Disabled until https://github.com/databricks/dbt-databricks/issues/232 is resolved
+              +enabled: False
+>>>>>>> 0e7fddc655d7720ea77159bd70689304ff5df784

@@ -7,5 +7,10 @@ packages:
     version: 0.8.0
   - package: dbt-labs/spark_utils
     version: 0.3.0
+<<<<<<< HEAD
   - package: brooklyn-data/dbt_artifacts
     version: 1.2.0
+=======
+  - package: dbt-labs/metrics
+    version: "<=1.4.0"
+>>>>>>> d5960ee5db362438c95e297e92a0dfc0aa2ba774
