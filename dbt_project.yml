@@ -49,7 +49,6 @@ models:
       marts:
           +materialized: table
           ml:
-              +cluster_id: "{{ env_var('DBT_DATABRICKS_CLUSTER_ID') }}"
               +submission_method: all_purpose_cluster
 
               # Disabled until https://github.com/databricks/dbt-databricks/issues/232 is resolved
