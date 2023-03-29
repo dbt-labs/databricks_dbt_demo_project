@@ -24,14 +24,6 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-<<<<<<< HEAD
-dispatch:
-  - macro_namespace: dbt_utils
-    search_order: ['spark_utils', 'dbt_utils']
-    
-=======
-
->>>>>>> d5960ee5db362438c95e297e92a0dfc0aa2ba774
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
@@ -39,12 +31,6 @@ dispatch:
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-<<<<<<< HEAD
-  my_new_project:
-    # Applies to all files under models/example/
-    example:
-      materialized: view
-=======
 
   databricks_demo:
       # Applies to all files under models/example/
@@ -53,21 +39,4 @@ models:
       staging:
           +materialized: view
       marts:
-<<<<<<< HEAD
-          materialized: table
-          +docs:
-            node_color: "gold"
-  tests:
-    +docs:
-      node_color: "pink"
-    
-=======
           +materialized: table
-          ml:
-              +cluster_id: "{{ env_var('DBT_DATABRICKS_CLUSTER_ID') }}"
-              +submission_method: all_purpose_cluster
-
-              # Disabled until https://github.com/databricks/dbt-databricks/issues/232 is resolved
-              +enabled: False
->>>>>>> 0e7fddc655d7720ea77159bd70689304ff5df784
->>>>>>> d5960ee5db362438c95e297e92a0dfc0aa2ba774
