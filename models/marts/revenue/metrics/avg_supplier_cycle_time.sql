@@ -2,8 +2,8 @@ with cte as (
     select * 
     from {{ metrics.calculate(
         metric('avg_supplier_cycle_days'),
-        grain='quarter',
-        dimensions = ['ship_mode'],
+        grain='week',
+        dimensions = ['supplier_key'],
         secondary_calculations = [metrics.rolling(aggregate = "max", interval=4, alias = "max_past_4quarter")]
     ) }}
 
