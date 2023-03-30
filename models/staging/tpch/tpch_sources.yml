@@ -56,18 +56,21 @@ sources:
             description: Foreign Key to O_ORDERKEY
             tests:
               - relationships:
+                  name: foreign_key_to_orderkey
                   to: source('tpch', 'orders')
                   field: o_orderkey
           - name: l_partkey
             description:  Foreign key to P_PARTKEY, first part of the compound Foreign Key to (PS_PARTKEY,PS_SUPPKEY) with L_SUPPKEY
             tests:
               - relationships:
+                  name: foreign_key_to_partkey
                   to: source('tpch', 'part')
                   field: p_partkey
           - name: l_suppkey
             description: Foreign key to S_SUPPKEY, second part of the compound Foreign Key to (PS_PARTKEY, PS_SUPPKEY) with L_PARTKEY
             tests:
               - relationships:
+                  name: foreign_key_to_suppkey
                   to: source('tpch', 'supplier')
                   field: s_suppkey
           - name: l_linenumber

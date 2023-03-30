@@ -1,6 +1,5 @@
 {% set old_etl_relation_query %}
-    select * from public.dim_product
-    where is_latest
+    select * from dbt_isobral.order_items
 {% endset %}
 
 {% set new_etl_relation_query %}
@@ -10,12 +9,8 @@
 {% set audit_query = audit_helper.compare_column_values(
     a_query=old_etl_relation_query,
     b_query=new_etl_relation_query,
-    primary_key="product_id",
-    column_to_compare="status"
+    primary_key="order_key",
+    column_to_compare="order_key"
 ) %}
 
-{% set audit_results = run_query(audit_query) %}
-
-{% if execute %}
-{% do audit_results.print_table() %}
-{% endif %}
+{{ audit_query }}
