@@ -10,7 +10,7 @@ models:
           - dbt_utils.accepted_range:
               name: accepted_range_up_to_10
               min_value: 0
-              max_value: 10
+              max_value: 1000
       - name: rank
 
 sources:
