@@ -19,8 +19,8 @@ select
     to_date(last_altered) as last_altered_day,
     count(to_date(last_altered)) as times_altered
 from query_history
+where last_altered < '2023-04-01'
 group by 1, 2, 3
--- where last_altered < '2023-04-01'
 {% if is_incremental() %}
 -- this filter will only be applied on an incremental run
 having last_altered_day >= (select max(last_altered_day) from {{ this }})
