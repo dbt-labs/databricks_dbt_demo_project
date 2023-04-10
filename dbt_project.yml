@@ -32,10 +32,22 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   tpch:
+      sources:
+        +docs:
+          node_color: "#CD7F32"
       staging:
           +materialized: table
+          +docs:
+            node_color: "silver"
       marts:
           +materialized: table
           +grants: 
             select: ['sa_demo_group']
+          intermediate:
+            +docs:
+              node_color: "gold"
+          core:
+            +docs:
+              node_color: "gold"
+          
 

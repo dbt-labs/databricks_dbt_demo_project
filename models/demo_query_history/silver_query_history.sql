@@ -1,13 +1,28 @@
 {{
     config(
-        materialized='incremental',
-        unique_key='id'
+        materialized="incremental",
+        unique_key=["table_name", "last_altered_day"],
+        incremental_predicates=[
+            "DBT_INTERNAL_DEST.last_altered_day > date_sub(current_date(), 7)"
+        ],
+        docs={"node_color": "silver"},
     )
 }}
 
-select * from {{ ref('src_query_history') }}
+with query_history as (
+    select * from {{ ref('src_query_history') }}
+)
 
+select
+    table_name,
+    last_altered_by,
+    to_date(last_altered) as last_altered_day,
+    count(to_date(last_altered)) as times_altered
+from query_history
+group by 1, 2, 3
+-- where last_altered < '2023-04-01'
 {% if is_incremental() %}
-    -- this filter will only be applied on an incremental run
-    where event_time > (select max(event_time) from {{ this }}) 
+-- this filter will only be applied on an incremental run
+having last_altered_day >= (select max(last_altered_day) from {{ this }})
 {% endif %}
+

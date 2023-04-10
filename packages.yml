@@ -6,7 +6,7 @@ packages:
   - package: dbt-labs/spark_utils
     version: 0.3.0
   - package: dbt-labs/metrics
-    version: "<=1.4.0"
+    version: 1.4.1
   - package: dbt-labs/audit_helper
     version: 0.8.0
 

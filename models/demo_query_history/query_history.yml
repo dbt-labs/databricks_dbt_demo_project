@@ -1,0 +1,24 @@
+version: 2
+models:
+  - name: gold_queries_by_user
+    description: "tables altered in last 30 days"
+    columns:
+      - name: table_name
+      - name: last_altered_by
+      - name: times_altered
+        tests:
+          - dbt_utils.accepted_range:
+              name: accepted_range_up_to_10
+              min_value: 0
+              max_value: 10
+      - name: rank
+
+sources:
+  - name: dbt_isobral
+    tables:
+      - name: src_query_history
+        freshness: 
+          warn_after: {count: 3, period: hour}
+          error_after: {count: 3, period: minute}
+        loaded_at_field: last_altered
+
