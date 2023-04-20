@@ -38,10 +38,8 @@ final as (
         orders.customer_key,
         orders.status_code,
         orders.priority_code,
-        orders.clerk_name,
-        
+        --orders.clerk_name,
         orders.ship_priority,
-                
         1 as order_count,                
         order_item_summary.gross_item_sales_amount,
         order_item_summary.item_discount_amount,
