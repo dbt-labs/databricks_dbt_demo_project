@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: orders_with_subtotals
+    description: Adds pivot columns with a sum of the part types in each order.
+    columns:
+      - name: order_key
+        description: Primary key on the customers table
+        tests:
+          - unique
+          - not_null
+                
+  - name: orders_with_subtotals_and_clusters
+    description: >
+      Using a KMeans data science algorithm from the sklearn python library, identify
+      order clusters using column attributes (including part types subtotals from
+      orders_with_subtotals), and label each order with which cluster it belongs.
+    columns:
+      - name: order_key
+        tests:
+          - unique
+          - not_null
+
+  - name: revenue_by_nation
+    description: >
+      The company revenue by nation, week over week
+    tests:
+      - unique:
+          column_name: "nation || '|' || date_week"
+      - not_null:
+          column_name: "nation || '|' || date_week"
+
+  - name: orders_by_nation_forecast_train
+    description: >
+      Using forecasting methods from the Prophet python library, train a model on company
+      revenue week over week, for each nation.
+    tests:
+      - unique:
+          column_name: "nation || '|' || date_week"
+      - not_null:
+          column_name: "nation || '|' || date_week"
+
+  - name: orders_by_nation_forecast_score
+    description: >
+      Using the models trained on previous data, provide forecasts on company revenue week
+      over week, for each nation.
+    tests:
+      - unique:
+          column_name: "nation || '|' || date_week"
+      - not_null:
+          column_name: "nation || '|' || date_week"
