@@ -35,13 +35,13 @@ models:
   my_new_project:
     # Applies to all files under models/example/
     example:
-      materialized: view
+      materialized: table
   databricks_demo:
       # Applies to all files under models/example/
       example:
-          +materialized: view
+          +materialized: table
       staging:
-          +materialized: view
+          +materialized: table
       marts:
           +materialized: table
           ##ml:
