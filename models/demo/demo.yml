@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: staging_orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: price_paid
+        description: this is what we paid
