@@ -2,10 +2,7 @@
     config(
         materialized="incremental",
         unique_key=["table_name", "last_altered_day"],
-        incremental_predicates=[
-            "DBT_INTERNAL_DEST.last_altered_day > date_sub(current_date(), 7)"
-        ],
-        docs={"node_color": "silver"},
+
     )
 }}
 

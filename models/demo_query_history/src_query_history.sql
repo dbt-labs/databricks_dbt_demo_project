@@ -10,5 +10,7 @@ select
     table_owner,
     created,
     created_by,
+    last_altered_by,
+    last_altered
 from system.information_schema.tables
 order by last_altered desc

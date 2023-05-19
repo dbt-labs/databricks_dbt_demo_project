@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: monthly_gross_revenue
+    description: ""
+    columns:
+      - name: order_month
+        description: ""
+
+      - name: gross_revenue
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_sum_to_be_between:
+              name: expect_sum_bw_4500_and_100000
+              min_value: 4500 
+              max_value: 100000 
+              group_by: [order_key]
+              row_condition: "order_key is not null" 
