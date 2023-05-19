@@ -1,5 +1,5 @@
 with fct_orders as (
-    select * from `sa_dev`.`dbt_isobral`.`fct_orders`
+    select * from {{ ref('fct_orders') }}
 )
 
 
