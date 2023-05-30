@@ -16,6 +16,7 @@ part_supplier as (
 
 ),
 final as (
+    
     select 
         order_item.order_item_key,
         order_item.order_key,
