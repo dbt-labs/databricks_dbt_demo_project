@@ -1,6 +1,7 @@
 {{
     config(
         materialized = 'table',
+        file_format='delta',
         tags=['finance']
     )
 }}
@@ -38,7 +39,7 @@ final as (
         orders.customer_key,
         orders.status_code,
         orders.priority_code,
-        -- orders.clerk_name,
+        orders.clerk_name,
         
         orders.ship_priority,
                 
