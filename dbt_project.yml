@@ -50,3 +50,5 @@ models:
 
               # Disabled until https://github.com/databricks/dbt-databricks/issues/232 is resolved
               +enabled: False
+vars:
+  surrogate_key_treat_nulls_as_empty_strings: true 
