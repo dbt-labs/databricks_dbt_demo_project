@@ -40,8 +40,6 @@ models:
   databricks_demo:
 
       # Applies to all files under models/example/
-      example:
-          +materialized: view
       staging:
           +materialized: view
           airbnb:
@@ -54,7 +52,7 @@ models:
               +submission_method: all_purpose_cluster
 
               # Disabled until https://github.com/databricks/dbt-databricks/issues/232 is resolved
-              +enabled: False
+              +enabled: false
           airbnb:
             +enabled: false
 vars:
