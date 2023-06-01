@@ -8,7 +8,7 @@ renamed as (
 
     select
     
-        {{ dbt_utils.surrogate_key(
+        {{ dbt_utils.generate_surrogate_key(
             ['l_orderkey', 
             'l_linenumber']) }}
                 as order_item_key,
@@ -20,8 +20,21 @@ renamed as (
         l_extendedprice as extended_price,
         l_discount as discount_percentage,
         l_tax as tax_rate,
-        l_returnflag as return_flag,
-        l_linestatus as status_code,
+
+        case l_returnflag
+            when 'R' then 'returned'
+            when 'N' then 'normal'
+            when 'A' then 'awaiting return'
+            else null
+        end as return_flag, 
+
+        case l_linestatus 
+            when 'P' then 'returned'
+            when 'F' then 'billed'
+            when 'O' then 'shipped'
+            else null
+        end as status_code,
+        
         l_shipdate as ship_date,
         l_commitdate as commit_date,
         l_receiptdate as receipt_date,
