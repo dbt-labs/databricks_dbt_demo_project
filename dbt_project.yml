@@ -12,10 +12,10 @@ profile: 'default'
 # These configurations specify where dbt should look for different types of files.
 # The `source-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
-source-paths: ["models"]
+model-paths: ["models"]
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
-data-paths: ["data"]
+seed-paths: ["data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
@@ -28,6 +28,11 @@ dispatch:
   - macro_namespace: dbt_utils
     search_order: ['spark_utils', 'dbt_utils']
 
+
+vars:
+  # Ref: https://docs.getdbt.com/guides/migration/versions/upgrading-to-dbt-utils-v1.0#changes-to-surrogate_key
+  surrogate_key_treat_nulls_as_empty_strings: true
+
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
@@ -35,15 +40,15 @@ dispatch:
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  file_format: delta
-  incremental_strategy: merge
 
   databricks_demo:
       # Applies to all files under models/example/
-      example:
-          +materialized: view
       staging:
           +materialized: view
+          tpch:
+              # Ref: https://community.databricks.com/s/question/0D58Y00009Z2wPsSAJ/creating-a-persistent-view-that-references-both-unity-catalog-and-hive-metastore-objects-is-not-supported-in-unity-catalog
+              +materialized: table
+
       marts:
           +materialized: table
           ml:

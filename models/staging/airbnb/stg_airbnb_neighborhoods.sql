@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 with source as (
 
@@ -9,7 +9,7 @@ with source as (
 renamed as (
 
   select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'neighbourhood'
     ]) }} as neighborhood_id,
     neighbourhood_group as neighborhood_group,
