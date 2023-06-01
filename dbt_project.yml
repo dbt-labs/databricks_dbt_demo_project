@@ -35,7 +35,9 @@ dispatch:
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-
+  +persist_docs:
+    relation: true
+    columns: true
   databricks_demo:
       # Applies to all files under models/example/
       example:
@@ -44,6 +46,7 @@ models:
           +materialized: view
       marts:
           +materialized: table
+          file_format: delta
           ml:
               +cluster_id: "{{ env_var('DBT_DATABRICKS_CLUSTER_ID') }}"
               +submission_method: all_purpose_cluster
