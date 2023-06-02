@@ -38,22 +38,21 @@ models:
     relation: true
     columns: true
   databricks_demo:
+    # Applies to all files under models/example/
+    staging:
+      +materialized: view
+      airbnb:
+        +enabled: false
+    marts:
+      +materialized: table
+      file_format: delta
+      ml:
+        +cluster_id: "{{ env_var('DBT_DATABRICKS_CLUSTER_ID') }}"
+        +submission_method: all_purpose_cluster
 
-      # Applies to all files under models/example/
-      staging:
-          +materialized: view
-          airbnb:
-            +enabled: false
-      marts:
-          +materialized: table
-          file_format: delta
-          ml:
-              +cluster_id: "{{ env_var('DBT_DATABRICKS_CLUSTER_ID') }}"
-              +submission_method: all_purpose_cluster
-
-              # Disabled until https://github.com/databricks/dbt-databricks/issues/232 is resolved
-              +enabled: false
-          airbnb:
-            +enabled: false
+        # Disabled until https://github.com/databricks/dbt-databricks/issues/232 is resolved
+        +enabled: false
+      airbnb:
+        +enabled: false
 vars:
   surrogate_key_treat_nulls_as_empty_strings: true 
