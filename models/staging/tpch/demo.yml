@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: silver_orders
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: lifetime_value
+        description: this is how much the customer paid in their life, including void orders
+        
