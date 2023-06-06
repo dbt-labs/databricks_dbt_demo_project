@@ -1,6 +1,7 @@
 
 target/
 dbt_packages/
+dbt_modules/
 logs/
 
 # Default .gitignore content added by dbt Cloud

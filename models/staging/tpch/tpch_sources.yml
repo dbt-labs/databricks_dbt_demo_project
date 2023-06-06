@@ -3,7 +3,12 @@ version: 2
 sources:
   - name: tpch
     schema: tpch
+<<<<<<< HEAD
     catalog: hive_metastore
+=======
+    catalog: sa_dev
+    
+>>>>>>> 37cf88d08613271a5e802212dd141040e348fa3d
     tables:
       - name: orders
         description: main order tracking table
