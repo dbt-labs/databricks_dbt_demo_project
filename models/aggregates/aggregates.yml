@@ -2,13 +2,14 @@ version: 2
 
 models:
   - name: monthly_gross_revenue
-    description: ""
+    description: "sum of money generated, not counting expenses, per month"
+    tags: ['finance']
     columns:
       - name: order_month
-        description: ""
+        description: "month in which we received an order"
 
       - name: gross_revenue
-        description: ""
+        description: "total sum of money generated, not counting expenses"
         tests:
           - dbt_expectations.expect_column_sum_to_be_between:
               name: expect_sum_bw_4500_and_100000
