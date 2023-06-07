@@ -12,10 +12,9 @@ profile: 'default'
 # These configurations specify where dbt should look for different types of files.
 # The `source-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
-source-paths: ["models"]
+
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
-data-paths: ["data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
@@ -35,18 +34,25 @@ dispatch:
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-
+  +persist_docs:
+    relation: true
+    columns: true
   databricks_demo:
-      # Applies to all files under models/example/
-      example:
-          +materialized: view
-      staging:
-          +materialized: view
-      marts:
-          +materialized: table
-          ml:
-              +cluster_id: "{{ env_var('DBT_DATABRICKS_CLUSTER_ID') }}"
-              +submission_method: all_purpose_cluster
+    # Applies to all files under models/example/
+    staging:
+      +materialized: view
+      airbnb:
+        +enabled: false
+    marts:
+      +materialized: table
+      file_format: delta
+      ml:
+        +cluster_id: "{{ env_var('DBT_DATABRICKS_CLUSTER_ID') }}"
+        +submission_method: all_purpose_cluster
 
-              # Disabled until https://github.com/databricks/dbt-databricks/issues/232 is resolved
-              +enabled: False
+        # Disabled until https://github.com/databricks/dbt-databricks/issues/232 is resolved
+        +enabled: false
+      airbnb:
+        +enabled: false
+vars:
+  surrogate_key_treat_nulls_as_empty_strings: true 
