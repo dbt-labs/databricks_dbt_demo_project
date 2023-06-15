@@ -8,11 +8,11 @@ with source as (
 renamed as (
 
     select
-        cast((dateadd(year,20,o_orderdate)) as DATE) as order_date,
+        o_totalprice as total_price,
+        o_orderdate as order_date,
         o_orderpriority as priority_code,
         o_clerk as clerk_name,
         o_shippriority as ship_priority,
-        o_orderstatus as status_code,
         o_comment as comment
 
     from source

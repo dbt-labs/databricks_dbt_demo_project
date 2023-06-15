@@ -27,10 +27,6 @@ exposures:
     owner:
       name: DBT User Bob
       email: dbtuserbob@getdbt.com
-    
-    # IMPORTANT: determines the lineage relationship of the exposure construct to the rest of your DAG
-    depends_on:
-      - ref('agg_yearly_parts_hardcoded_pivot')
 
   - name: orders_dashboard
     description: 
@@ -63,7 +59,6 @@ exposures:
     
     depends_on:
       - ref('stg_tpch_orders')
-      - ref('dim_suppliers')
       
     owner:
       name: Isabela 
