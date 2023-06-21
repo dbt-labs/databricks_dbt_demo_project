@@ -1,3 +1,9 @@
+{{
+    config(
+        grants = {'+select': ['sa_demo_group']}
+    )
+}}
+
 with fct_orders as (
     select * from {{ ref('fct_orders') }}
 )
