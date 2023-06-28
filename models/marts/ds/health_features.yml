@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: feat_health_indicators
+    description: feature store for health indicators. Derived from world health organization data
+    columns:
+      - name: gho
+        description: the global health organization code for a given health index
+      - name: year
+        tests:
+          - not_null
