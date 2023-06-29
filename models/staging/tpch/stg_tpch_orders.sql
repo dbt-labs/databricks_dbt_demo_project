@@ -9,7 +9,8 @@ renamed as (
 
     select
     
-       
+
+        o_clerk as clerk_name,
         o_shippriority as ship_priority,
         o_comment as comment
 
