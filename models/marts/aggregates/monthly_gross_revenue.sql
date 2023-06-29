@@ -5,9 +5,7 @@
 }}
 
 with fct_orders as (
-    select * from {{ ref('fct_orders') }}
-)
-
+    select * from {{ ref('fct_orders') }})
 
 select
     date_trunc('MONTH', fct_orders.order_date) as order_month,
