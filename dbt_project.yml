@@ -41,14 +41,10 @@ models:
         +enabled: false
     marts:
       +materialized: table
-      file_format: delta
-      ml:
-        +cluster_id: "{{ env_var('DBT_DATABRICKS_CLUSTER_ID') }}"
-        +submission_method: all_purpose_cluster
-
-        # Disabled until https://github.com/databricks/dbt-databricks/issues/232 is resolved
-        +enabled: false
-      airbnb:
-        +enabled: false
+      +file_format: delta
+    demo_schema_evolution:
+      +file_format: delta
+      +cluster_id: "{{ env_var('DBT_DATABRICKS_CLUSTER_ID') }}"
+      +submission_method: all_purpose_cluster      
 vars:
   surrogate_key_treat_nulls_as_empty_strings: true 
