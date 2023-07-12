@@ -2,10 +2,7 @@
     config(
         materialized='incremental',
         unique_key='order_id',
-        cluster_id='0426-154059-dox4kjfg',
-        submission_method='all_purpose_cluster',
-        file_format='delta'
-
+        on_schema_change= "sync_all_columns"
     )
 }}
 

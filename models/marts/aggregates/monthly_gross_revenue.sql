@@ -1,6 +1,6 @@
 {{
     config(
-        grants = {'+select': ['sa_demo_group']}
+        grants = {'+select': ['sa_demo_group','transformer']}
     )
 }}
 

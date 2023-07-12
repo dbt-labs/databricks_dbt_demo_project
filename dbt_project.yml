@@ -37,6 +37,9 @@ models:
     # Applies to all files under models/example/
     staging:
       +materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
       airbnb:
         +enabled: false
     marts:
