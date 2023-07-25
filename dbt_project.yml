@@ -33,18 +33,26 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   tpch:
-  databricks_demo:
-    # Applies to all files under models/example/
+    sources:
+      +docs:
+        node_color: "#CD7F32"      
     staging:
       +materialized: view
       +persist_docs:
         relation: true
         columns: true
-      airbnb:
-        +enabled: false
+      +docs:
+        node_color: "#5A5A5A"
+    intermediate:
+      +docs:
+        node_color: "#5A5A5A"
+    airbnb:
+      +enabled: false
     marts:
       +materialized: table
       +file_format: delta
+      +docs:
+        node_color: "#D1B000"
     demo_schema_evolution:
       +file_format: delta
       +cluster_id: "{{ env_var('DBT_DATABRICKS_CLUSTER_ID') }}"

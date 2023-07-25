@@ -1,6 +1,15 @@
 version: 2
 
 models:
+  - name: fct_health_indicators_pivot
+    docs:
+      node_color: "#5A5A5A"
+  - name: fct_health_indicators
+    docs:
+      node_color: "#5A5A5A"
+  - name: stg_health_indicators
+    docs:
+      node_color: "#5A5A5A"
   - name: feat_health_indicators
     description: feature store for health indicators. Derived from world health organization data
     columns:
