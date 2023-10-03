@@ -24,7 +24,7 @@ order_item_summary as (
         sum(item_tax_amount) as item_tax_amount,
         sum(net_item_sales_amount) as net_item_sales_amount,
         count_if( return_flag = 'returned' ) as return_count,
-        count_if( retrun_flag != 'returned') as orders
+        count_if( return_flag != 'returned') as orders
     from order_item
     group by
         1
