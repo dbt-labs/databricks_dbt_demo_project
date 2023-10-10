@@ -13,8 +13,10 @@ profile: 'default'
 # The `source-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
 
+model-paths: ["models"]
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
+seed-paths: ["data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
@@ -26,6 +28,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 dispatch:
   - macro_namespace: dbt_utils
     search_order: ['spark_utils', 'dbt_utils']
+
+
+vars:
+  # Ref: https://docs.getdbt.com/guides/migration/versions/upgrading-to-dbt-utils-v1.0#changes-to-surrogate_key
+  surrogate_key_treat_nulls_as_empty_strings: true
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models

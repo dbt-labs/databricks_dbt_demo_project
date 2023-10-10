@@ -30,22 +30,23 @@ models:
       - not_null:
           column_name: "nation || '|' || date_week"
 
-  # - name: orders_by_nation_forecast_train
-  #   description: >
-  #     Using forecasting methods from the Prophet python library, train a model on company
-  #     revenue week over week, for each nation.
-  #   tests:
-  #     - unique:
-  #         column_name: "nation || '|' || date_week"
-  #     - not_null:
-  #         column_name: "nation || '|' || date_week"
+  - name: revenue_by_nation_forecast_train
+    description: >
+      Using forecasting methods from the Prophet python library, train a model on company
+      revenue week over week, for each nation.
+    tests:
+      - unique:
+          column_name: "nation || '|' || date_week"
+      - not_null:
+          column_name: "nation || '|' || date_week"
 
-  # - name: orders_by_nation_forecast_score
-  #   description: >
-  #     Using the models trained on previous data, provide forecasts on company revenue week
-  #     over week, for each nation.
-  #   tests:
-  #     - unique:
-  #         column_name: "nation || '|' || date_week"
-  #     - not_null:
-  #         column_name: "nation || '|' || date_week"
+  - name: revenue_by_nation_forecast_score
+    description: >
+      Using the models trained on previous data, provide forecasts on company revenue week
+      over week, for each nation.
+    tests:
+      - unique:
+          column_name: "nation || '|' || date_week"
+      - not_null:
+          column_name: "nation || '|' || date_week"
+
