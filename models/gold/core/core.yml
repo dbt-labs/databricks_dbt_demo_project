@@ -5,7 +5,7 @@ models:
     description: Customer dimensions table
     columns:
       - name: customer_key
-        description: Primary key on the customers table
+        description: Primary key on the customers table - another commit to trigger CI
         tests:
           - unique
           - not_null
