@@ -39,11 +39,11 @@ models:
     columns: true
   databricks_demo:
     # Applies to all files under models/example/
-    staging:
+    silver:
       +materialized: view
       airbnb:
         +enabled: false
-    marts:
+    gold:
       +materialized: table
       file_format: delta
       ml:
