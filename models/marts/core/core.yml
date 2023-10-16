@@ -23,6 +23,10 @@ models:
         tests:
           - unique
           - not_null
+      - name: phone_number
+        description: this is the number of the supplier, should not contain anything but numbers
+        tests:
+          - is_numeric
 
   - name: fct_order_items
     columns:
