@@ -21,7 +21,7 @@ region as (
 final as (
 
     select 
-        null as supplier_key,
+        supplier.supplier_key,
         supplier.supplier_name,
         supplier.supplier_address,
         nation.name as nation,
