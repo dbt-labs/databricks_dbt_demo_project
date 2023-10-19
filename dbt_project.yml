@@ -48,12 +48,20 @@ models:
           tpch:
               # Ref: https://community.databricks.com/s/question/0D58Y00009Z2wPsSAJ/creating-a-persistent-view-that-references-both-unity-catalog-and-hive-metastore-objects-is-not-supported-in-unity-catalog
               +materialized: table
+          airbnb:
+              +enabled: false
 
       marts:
           +materialized: table
+          +enabled: false
+          core:
+              +enabled: true
+          intermediate:
+              +enabled: true
           ml:
               +cluster_id: "{{ env_var('DBT_DATABRICKS_CLUSTER_ID') }}"
               +submission_method: all_purpose_cluster
 
               # Disabled until https://github.com/databricks/dbt-databricks/issues/232 is resolved
-              +enabled: False
+      util:
+          +enabled: false

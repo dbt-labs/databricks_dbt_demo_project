@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: ts_customer_metrics_regional
+    description: Revenue aggregated across regions
+    columns:
+      - name: order_date
+        tests:
+          - not_null
+      - name: nation
+      - name: region
+      - name: market_segment
+      - name: order_count
+      - name: revenue
