@@ -24,6 +24,10 @@ models:
         tests:
           - unique
           - not_null
+      - name: ernesto_field
+        description: this is a test field we will show in a minute
+        tests: 
+          - not_null
                 
   - name: stg_tpch_orders
     description: staging layer for orders data
