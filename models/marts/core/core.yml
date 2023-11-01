@@ -33,6 +33,9 @@ models:
                 
   - name: fct_orders
     columns:
+      - name: new_key
+        tests:
+          - unique
       - name: order_key
         tests:
           - unique

@@ -1,6 +1,8 @@
 {{
     config(
-        materialized = 'table',
+        materialized = 'incremental',
+        unique_key= 'order_key',
+        
         tags=['finance']
     )
 }}
@@ -32,7 +34,7 @@ order_item_summary as (
 final as (
 
     select 
-
+        {{ dbt_utils.generate_surrogate_key(['orders.order_key', 'orders.order_date' ])}} as new_key,
         orders.order_key, 
         orders.order_date,
         orders.customer_key,
