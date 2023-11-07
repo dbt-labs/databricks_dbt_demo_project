@@ -49,3 +49,4 @@ models:
           column_name: "nation || '|' || date_week"
       - not_null:
           column_name: "nation || '|' || date_week"
+
