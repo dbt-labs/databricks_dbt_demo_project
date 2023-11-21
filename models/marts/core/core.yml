@@ -43,6 +43,11 @@ models:
         description: name of the part
       - name: brand
         description: brand of the part
+      - name: size_category
+        description: this is the cat (>15 is large)
+        tests:  
+          - accepted_values:  
+              values: ['small', 'large']
       - name: type
         description: type of part including material
       - name: size

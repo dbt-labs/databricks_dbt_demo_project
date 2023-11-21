@@ -16,7 +16,11 @@ renamed as (
         p_size as size,
         p_container as container,
         p_retailprice as retail_price,
-        p_comment as comment
+        p_comment as comment,
+        case when 
+            size > 15 then 'large'
+            else 'not large'
+        end as size_category
 
     from source
 
