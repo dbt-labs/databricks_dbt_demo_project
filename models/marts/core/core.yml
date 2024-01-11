@@ -29,6 +29,9 @@ models:
         description: market segment of the customer
 
 
+              
+
+
   - name: dim_parts
     description: Parts dimensions table
     columns:
