@@ -49,7 +49,7 @@ models:
     staging:
       +materialized: view
       airbnb:
-        +enabled: false
+        +enabled: true
     marts:
       +materialized: table
       file_format: delta
@@ -60,6 +60,6 @@ models:
         # Disabled until https://github.com/databricks/dbt-databricks/issues/232 is resolved
         +enabled: false
       airbnb:
-        +enabled: false
+        +enabled: true
 vars:
   surrogate_key_treat_nulls_as_empty_strings: true 
