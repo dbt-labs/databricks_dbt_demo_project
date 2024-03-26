@@ -1,6 +1,12 @@
 version: 2
 
 models:
+  - name: orders_by_nation
+    columns:
+      - name: order_key
+        tests:
+          - not_null
+          - unique
   - name: dim_customers
     description: Customer dimensions table
     columns:
