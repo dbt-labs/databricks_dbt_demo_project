@@ -6,6 +6,9 @@ name: 'databricks_demo'
 version: '1.0.0'
 config-version: 2
 
+dbt_cloud:
+  defer-env-id: '2357'
+
 # This setting configures which "profile" dbt uses for this project.
 profile: 'default'
 
