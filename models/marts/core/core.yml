@@ -13,7 +13,7 @@ models:
         description: region name
         tests:
           - accepted_values:
-              values: ['AFRICA', 'MIDDLE EAST', 'ASIA', 'EUROPE']
+              values: ['AFRICA', 'MIDDLE EAST', 'ASIA', 'EUROPE', 'AMERICA']
       - name: account_balance
         tests:
           - dbt_expectations.expect_column_values_to_be_within_n_stdevs:
