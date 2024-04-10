@@ -72,7 +72,9 @@ final as (
         listings.listing_last_scraped_at,
         listings.calendar_last_scraped_at,
         listings.calendar_updated_at,
-        listings.host_since,
+
+        -- Commend out due to error parsing
+        -- listings.host_since,
         
         calendar_summary.minimum_minimum_nights,
         calendar_summary.maximum_minimum_nights,

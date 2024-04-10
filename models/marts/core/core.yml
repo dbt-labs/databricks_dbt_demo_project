@@ -13,8 +13,11 @@ models:
         description: region name
         tests:
           - accepted_values:
-              values: ['AFRICA','MIDDLE EAST','ASIA','EUROPE','AMERICA']
-              severity: warn
+              values: ['AFRICA', 'MIDDLE EAST', 'ASIA', 'EUROPE', 'AMERICA']
+      - name: account_balance
+        tests:
+          - dbt_expectations.expect_column_values_to_be_within_n_stdevs:
+              sigma_threshold: 2 # (Optional. Default is 3)
       - name: name
         description: customer id
       - name: address
@@ -27,7 +30,6 @@ models:
         description: '{{ doc("account_balance") }}'
       - name: market_segment
         description: market segment of the customer
-
 
   - name: dim_parts
     description: Parts dimensions table

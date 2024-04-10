@@ -21,7 +21,7 @@ renamed as (
         bathrooms_text as bathrooms_description,
         beds as num_beds,
         amenities,
-        price as price_in_dollars,
+        {{ dollar_string_to_decimal('price') }} as price_in_dollars,
         minimum_nights,
         maximum_nights,
         picture_url,
@@ -68,8 +68,10 @@ renamed as (
         boolean(has_availability) as has_availability,
         to_date(last_scraped) as listing_last_scraped_at,
         to_date(calendar_last_scraped) as calendar_last_scraped_at,
-        to_date(calendar_updated) as calendar_updated_at,
-        to_date(host_since) as host_since
+        to_date(calendar_updated) as calendar_updated_at
+
+        -- Commented out due to error parsing
+        -- to_date(host_since) as host_since
     from source
 
 )
