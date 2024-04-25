@@ -152,6 +152,10 @@ models:
         description: container of the part
       - name: retail_price
         description: '{{ doc("retail_price") }}'
+      - name: retail_price_euro
+        description: in euros
+        tests:
+          - not_null
       - name: comment
         description: '{{ doc("comment") }}'
 
