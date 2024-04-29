@@ -13,7 +13,6 @@ projected as (
 
     select 
 
-        line_item.order_item_key,
         orders.order_key,
         orders.customer_key,
         line_item.part_key,
@@ -83,7 +82,7 @@ derived_3 as (
 final as (
 
     select
-        derived_3.order_item_key,
+
         derived_3.order_key,
         derived_3.customer_key,
         derived_3.part_key,
