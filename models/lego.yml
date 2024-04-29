@@ -1,0 +1,8 @@
+models:
+  - name: fact_customer_ltv
+    description: make this useful
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          
