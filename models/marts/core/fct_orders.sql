@@ -1,6 +1,7 @@
 {{
     config(
         materialized = 'table',
+        databricks_tags = ['finance'],
         tags=['finance']
     )
 }}
@@ -23,7 +24,7 @@ order_item_summary as (
         sum(item_discount_amount) as item_discount_amount,
         sum(item_tax_amount) as item_tax_amount,
         sum(net_item_sales_amount) as net_item_sales_amount,
-        count_if( return_flag = 'returned' ) as return_count
+        count_if( return_flag = 'returned' AND item_tax_amount > 0 ) as return_count
     from order_item
     group by
         1
