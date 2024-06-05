@@ -1,0 +1,17 @@
+models:
+  - name: fct_orders_incremental
+    description: This model incrementally builds the orders fact table. It selects all orders and partitions them based on the order date. Depending on whether it's an incremental run, it filters the data accordingly to include orders before or after July 1, 1998.
+    columns:
+      - name: order_key
+        description: primary key of the model
+        tests:
+          - unique
+          - not_null
+      - name: order_date
+        description: date of the order
+      - name: customer_id
+        description: foreign key for customers
+      - name: status
+        description: status of the orde
+      - name: total_amount
+        description: The total amount for the order
