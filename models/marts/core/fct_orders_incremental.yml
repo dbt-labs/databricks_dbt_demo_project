@@ -1,0 +1,7 @@
+models:
+  - name: fct_orders_incremental
+    columns:
+      - name: order_key
+        tests:
+          - unique
+          - not_null

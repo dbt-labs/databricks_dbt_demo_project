@@ -1,0 +1,10 @@
+packages:
+  - package: dbt-labs/dbt_utils
+    version: 1.1.1
+  - package: dbt-labs/codegen
+    version: 0.11.0
+  - package: dbt-labs/dbt_external_tables
+    version: 0.8.7
+  - package: dbt-labs/spark_utils
+    version: 0.3.0
+sha1_hash: e160fe47fa4afb4ddf8408d7b07f016df9113608
