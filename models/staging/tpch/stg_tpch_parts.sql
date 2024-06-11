@@ -16,6 +16,7 @@ renamed as (
         p_size as size,
         p_container as container,
         p_retailprice as retail_price,
+        p_retailprice * 10.1 as retail_price_euro,
         p_comment as comment
 
     from source
