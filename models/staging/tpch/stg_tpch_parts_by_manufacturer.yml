@@ -1,0 +1,6 @@
+models:
+  - name: stg_tpch_parts_by_manufacturer
+    columns:
+      - name: manufacturer
+        tests:
+          - not_null
