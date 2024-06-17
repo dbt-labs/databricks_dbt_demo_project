@@ -1,0 +1,17 @@
+models:
+  - name: fct_customer
+    description: This model provides key metrics for each customer, aggregating their lifetime orders and current account balance to provide a summary of their engagement and financial status.
+    columns:
+      - name: customer_key
+        description: A unique identifier for each customer.
+        tests:
+          - unique
+          - not_null
+      - name: lifetime_orders
+        description: The total number of distinct orders made by the customer.
+        tests:
+          - not_null
+      - name: current_account_balance
+        description: The current account balance of the customer, reflecting their latest financial status.
+        tests:
+          - not_null
