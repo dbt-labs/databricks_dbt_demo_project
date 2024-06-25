@@ -58,7 +58,7 @@ models:
         +submission_method: all_purpose_cluster
 
         # Disabled until https://github.com/databricks/dbt-databricks/issues/232 is resolved
-        +enabled: false
+        +enabled: true
       airbnb:
         +enabled: false
 vars:
