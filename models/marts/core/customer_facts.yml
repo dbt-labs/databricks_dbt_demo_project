@@ -1,0 +1,22 @@
+models: 
+  - name: customer_facts
+    description: The purpose of this model is to aggregate customer-related metrics such as the total number of orders and the total lifetime value of purchases for each customer.
+    columns:
+      - name: lifetime_orders
+        description: This represents the total number of unique orders placed by each customer.
+        tests:
+          - not_null
+
+      - name: lifetime_value
+        description: This is the total lifetime value of purchases made by each customer, including returns.
+        tests:
+          - not_null
+
+      - name: customer_key
+        description: A unique identifier for each customer.
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_key
