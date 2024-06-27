@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: dbt_eongaro
+    tables:
+      - name: employee_record
+        # external:
+        #   location: 's3://sales-sandbox-databricks-unity-catalog/4f95dc28-4023-4444-9f9c-fc4df1cb573e/volumes/720b626d-5506-4503-9193-abd90870de41/employee_records.json'   # hdfs://, s3://, azure://, dbfs://, ...
+        #   using: json                         # file type: csv, json, parquet, delta, ...

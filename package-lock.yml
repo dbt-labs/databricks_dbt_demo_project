@@ -7,3 +7,4 @@ packages:
     version: 0.9.0
   - package: dbt-labs/spark_utils
     version: 0.3.0
+sha1_hash: 49e7aef3df76555e2b952b6df918f7f0ffde0bd8
