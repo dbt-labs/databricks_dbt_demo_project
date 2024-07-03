@@ -1,6 +1,17 @@
 version: 2
 
 models:
+  - name: sales_summary
+    description: table containing sales summary data
+    columns:
+      - name: m
+        tests:
+          - not_null
+      - name: total_sales
+        tests:
+          - not_null
+
+
   # These two models are just different ways of doing the same thing (pivot over categories) using jinja and the PIVOT operation in Snowflake
   - name: agg_yearly_parts_hardcoded_pivot
     columns:
