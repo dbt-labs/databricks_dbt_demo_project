@@ -30,7 +30,7 @@ final as (
         region.name as region,
         customer.phone_number,
         --customer.account_balance,
-        LOWER(customer.market_segment)
+        LOWER(customer.market_segment) as market_segment
         -- new column
     from
         customer
