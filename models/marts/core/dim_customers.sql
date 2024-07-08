@@ -2,6 +2,7 @@
     config(
         materialized = 'table',
         transient=false
+        
     )
 }}
 
@@ -30,8 +31,9 @@ final as (
         region.name as region,
         customer.phone_number,
         customer.account_balance,
-        customer.market_segment
+        customer.market_segment,
         -- new column
+        1 as new_col
     from
         customer
         inner join nation
