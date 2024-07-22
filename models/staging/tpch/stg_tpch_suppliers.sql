@@ -14,7 +14,7 @@ renamed as (
         s_nationkey as nation_key,
         s_phone as phone_number,
         s_acctbal as account_balance,
-        s_comment as comment,
+        s_comment as upper(comment),
         "a_test" as a_test
 
     from source
