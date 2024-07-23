@@ -9,7 +9,7 @@ renamed as (
         s_address as supplier_address,
         s_nationkey as nation_key,
         s_phone as phone_number,
-        s_acctbal * .9 as account_balance,
+        round(s_acctbal, 1) as account_balance,
         s_comment as comment
     from source
 )
