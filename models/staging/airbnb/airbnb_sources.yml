@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: airbnb
     schema: airbnb
-    catalog: hive_metastore
+    catalog: raw_data
     tables:
       - name: calendar
         description: Availability calendar for listings

@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: tpch
     schema: tpch
-    catalog: sa_dev
+    catalog: raw_data
     
     tables:
       - name: orders
