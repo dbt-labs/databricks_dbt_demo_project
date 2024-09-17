@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: airbnb
     schema: airbnb
-    catalog: raw_data
+    catalog: raw_data # where the raw data is for this demo project
     tables:
       - name: calendar
         description: Availability calendar for listings
