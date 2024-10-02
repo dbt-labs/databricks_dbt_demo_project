@@ -1,8 +1,8 @@
 {{
     config(
         materialized = 'table',
-        tags=['finance']
-    )
+        tags=['finance'],
+        grants = {'select': 'sa_demo_group'})
 }}
 
 with orders as (

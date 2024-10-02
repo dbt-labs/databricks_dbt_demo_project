@@ -6,4 +6,4 @@ packages:
   - package: dbt-labs/dbt_external_tables
     version: 0.8.7
   - package: dbt-labs/spark_utils
-    version: 0.3.0
+    version: ">=0.3.0"
