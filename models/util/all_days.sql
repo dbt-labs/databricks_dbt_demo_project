@@ -1,3 +1,9 @@
+{{
+    config(
+        materialized='table'
+    )
+}}
+
 with rawdata as (
     with p as (
         select 0 as generated_number union all select 1

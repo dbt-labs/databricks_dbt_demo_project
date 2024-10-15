@@ -1,0 +1,1 @@
+select * from {{ ref('stg_samples__supplier') }}
