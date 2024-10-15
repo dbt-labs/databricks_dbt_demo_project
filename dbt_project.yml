@@ -47,7 +47,7 @@ models:
   databricks_demo:
     # Applies to all files under models/example/
     staging:
-      +materialized: view
+      +materialized: table
       airbnb:
         +enabled: false
     marts:
