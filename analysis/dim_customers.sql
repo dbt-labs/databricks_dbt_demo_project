@@ -5,11 +5,8 @@
     )
 }}
 
-with customer as (
+with
 
-    select * from {{ ref('stg_tpch_customers') }}
-
-),
 nation as (
 
     select * from {{ ref('stg_tpch_nations') }}
