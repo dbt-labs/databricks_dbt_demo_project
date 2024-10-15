@@ -1,11 +1,16 @@
 {{
     config(
         materialized = 'table',
-        transient=false
+        transient=false, 
+        enabled=false
     )
 }}
 
 with
+
+customer as (
+    select * from {{ ref('stg_tpch_customers') }}
+)
 
 nation as (
 
