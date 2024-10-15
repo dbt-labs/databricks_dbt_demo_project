@@ -1,0 +1,31 @@
+models:
+  - name: stg_samples__supplier
+    description: This model extracts and transforms supplier data from the 'samples' source, ensuring each supplier has a unique key and standardizing the comment field. It supports incremental loading to efficiently handle updates.
+    columns:
+      - name: supplier_key
+        description: A unique identifier for each supplier, used to track and manage supplier records.
+        tests:
+          - unique
+          - not_null
+      - name: s_name
+        description: The name of the supplier.
+        tests:
+          - not_null
+      - name: s_address
+        description: The address of the supplier.
+        tests:
+          - not_null
+      - name: s_nationkey
+        description: A key representing the nation associated with the supplier.
+        tests:
+          - not_null
+      - name: s_phone
+        description: The contact phone number for the supplier.
+        tests:
+          - not_null
+      - name: s_acctbal
+        description: The account balance for the supplier.
+        tests:
+          - not_null
+      - name: comment
+        description: A comment field providing additional information about the supplier.

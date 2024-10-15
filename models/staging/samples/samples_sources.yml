@@ -1,0 +1,10 @@
+sources:
+  - name: samples
+    schema: tpch
+    catalog: samples
+    tables:
+      - name: customer 
+      - name: supplier
+      - name: region
+      - name: nation
+      - name: part

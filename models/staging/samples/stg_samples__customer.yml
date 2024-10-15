@@ -1,0 +1,20 @@
+models:
+  - name: stg_samples__customer
+    description: This model extracts and renames customer data from the 'samples' source, providing a standardized view of customer information for further analysis.
+    columns:
+      - name: c_custkey
+        description: A unique identifier for each customer.
+      - name: c_name
+        description: The name of the customer.
+      - name: c_address
+        description: The address of the customer.
+      - name: c_nationkey
+        description: A key representing the customer's nation.
+      - name: c_phone
+        description: The phone number of the customer.
+      - name: c_acctbal
+        description: The account balance of the customer.
+      - name: c_mktsegment
+        description: The market segment associated with the customer.
+      - name: c_comment
+        description: Additional comments related to the customer.
