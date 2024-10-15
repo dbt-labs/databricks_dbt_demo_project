@@ -12,7 +12,7 @@ renamed as (
             ['ps_partkey', 
             'ps_suppkey']) }} 
                 as part_supplier_key,
-        ps_partkey as part_key,
+        ps_partkey as part_key_2,
         ps_suppkey as supplier_key,
         ps_availqty as available_quantity,
         ps_supplycost as cost,
